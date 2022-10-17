@@ -6,27 +6,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="modal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
-      <div class="header-logo">
+    <div class="topnav flex-row" id="myTopnav">
+      <div class="header-logo flex-item">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
     </div>
-    <div class="main-navbar">
-      
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+    <nav class="main-navbar">
+      <a href="#" class="active flex-item"><span>Accueil</span></a>
+      <a href="#" class="flex-item"><span>Détails de l'évènement</span></a>
+      <a href="#" class="flex-item"><span>À propos</span></a>
+      <a href="#" class="flex-item"><span>Contact</span></a>
+      <a href="#" class="flex-item"><span>Évènements passés</span></a>
+      <div class="flex-item">
+      <button class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
-      </a>
+      </button>
     </div>
+    </nav>
     </div>
   </div>
     <main>
@@ -52,15 +52,16 @@
         </button>
       </div>
 
-      <div class="bground">
+      <div class="bground modal">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" onclick="closeModal()"></span>
           <div class="modal-body">
             <form
+              id="form-id"
               name="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="validate();"
             >
               <div
                 class="formData">
@@ -207,6 +208,15 @@
               />
             </form>
           </div>
+        </div>
+      </div>
+      <div class="modal modal-succeed">
+        <div class="content">
+          <span class="close" onclick="closeModal()"></span>
+          <div class="modal-body">
+            <h1>Merci pour votre inscription</h1>
+          </div>
+          <button class="button">Fermer</button>
         </div>
       </div>
     </main>
