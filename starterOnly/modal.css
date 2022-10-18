@@ -9,7 +9,6 @@
   padding: 0;
 }
 /* Landing Page */
-
 body {
   margin: 0;
   display: flex;
@@ -20,46 +19,37 @@ body {
   max-width: 1300px;
   margin: 0 auto;
 }
-
 p {
   margin-bottom: 0;
   padding: 0.5vw;
 }
-
 img {
   padding-right: 1vw;
 }
-
 .flex-row {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
 }
-
 .header-logo {
   margin-left: 3.5vw;
 }
-
 .flex-item {
   flex: auto;
 }
-
 .topnav {
   overflow: hidden;
   margin: 3.5% 0;
 }
-
 .topnav button {
   display: none;
   border: none;
   background-color: #fff;
   color: #ff0000;
 }
-
 .topnav .icon {
   font-size: 40px;
 }
-
 .topnav a {
   display: inline-block;
   color: #000000;
@@ -70,21 +60,18 @@ img {
   font-size: 20px;
   font-family: Roboto, sans-serif;
 }
-
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 10px;
   text-decoration: underline white;
 }
-
 .topnav a.active {
   display: none;
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 10px;
 }
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -96,7 +83,6 @@ main {
   border-radius: 2rem;
   text-align: justify;
 }
-
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -108,19 +94,15 @@ main {
   border-radius: 1rem;
   cursor: pointer;
 }
-
 .modal-btn:hover {
   background: #3876ac;
 }
-
 .footer {
   margin: 20px;
   padding: 10px;
   font-family: var(--font-slab);
 }
-
 /* Modal form */
-
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -130,15 +112,9 @@ main {
   cursor: pointer;
   font-size: 16px;
 }
-
 .button:hover {
   background: #3876ac;
 }
-
-.smFont {
-  font-size: 16px;
-}
-
 .bground {
   display: none;
   position: fixed;
@@ -150,19 +126,37 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
-
 .modal-succeed {
   display: none;
-  position: fixed;
+  position: absolute;
   z-index: 2;
   left: 0;
-  top: 0;
+  top: 20px;
+  bottom: 0;
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: #232323;
+  color: white;
+  text-align: center;
 }
-
+.modal-succeed button {
+  border: none;
+}
+.container-body {
+  position: relative;
+}
+.invalid {
+  display: none;
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: red;
+  font-size: 10px;
+}
+.red-border {
+  box-sizing: border-box;
+  border: 2px solid red;
+}
 .content {
   margin: 5% auto;
   width: 100%;
@@ -176,12 +170,10 @@ main {
   color: #fff;
   padding-top: 10px;
 }
-
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
 }
-
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -504,6 +496,9 @@ footer {
 
   .hero-headline {
     font-size: 4.5rem;
+  }
+  .hero-section {
+    min-height: 0;
   }
 } 
 

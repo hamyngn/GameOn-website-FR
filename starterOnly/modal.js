@@ -1,3 +1,4 @@
+// add class responsive to id myTopnav 
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -13,6 +14,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const modal = document.querySelector(".modal");
 const modalSucceed = document.querySelector(".modal-succeed");
+const subcribeForm = document.forms["reserve"];
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -20,6 +22,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  modalSucceed.style.display = "none";
 }
 
 //close modal
@@ -27,15 +30,48 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-function openModalSucceed() {
-  modalbg.style.display = "none";
-  modalSucceed.style.display = "block";
+function inputValue(id) {
+  return subcribeForm[id].value;
+}
+function checkInt(num) {
+  return Number.isInteger(parseFloat(num));
 }
 
 function validate() {
-  openModalSucceed();
-  return true;
-}
+    if(inputValue("fname").length < 2) {
+      document.getElementById("fname-invalid").style.display="block";
+      document.getElementById("fname").classList.add("red-border");
+      return false;
+    }
+    if (inputValue("lname").length < 2) {
+      document.getElementById("lname-invalid").style.display="block";
+      document.getElementById("lname").classList.add("red-border");
+      return false;
+    }
+    if (inputValue("email") == "") {
+      document.getElementById("email-invalid").style.display="block";
+      document.getElementById("email").classList.add("red-border");
+      return false;
+    }
+    if (checkInt(inputValue("quantity"))==false) {
+      document.getElementById("quantity-invalid").style.display="block";
+      document.getElementById("quantity").classList.add("red-border");
+      return false;
+    }
+    if (inputValue("location") == "") {
+      document.getElementById("location-invalid").style.display="block";
+      document.getElementById("location").classList.add("red-border");
+      return false;
+    }
+    if (subcribeForm["conditions"].checked == false) {
+      document.getElementById("conditions-invalid").style.display="block";
+      document.getElementById("conditions").classList.add("red-border");
+      return false;
+    }
+    modalSucceed.style.display = "block";
+    return true;
+  }
+
 
 
 
