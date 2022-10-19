@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- header -->
     <div class="topnav flex-row" id="myTopnav">
       <div class="header-logo flex-item">
       <img alt="logo" src="Logo.png" width="auto" height="auto" />
@@ -28,7 +29,8 @@
     </div>
     </nav>
     </div>
-  </div>
+    </div>
+    <!-- content -->
     <main>
       <div class="hero-section">
         <div class="hero-content">
@@ -52,12 +54,13 @@
           je m'inscris
         </button>
       </div>
-        <!-- modal subcribe -->
+        <!-- subcribe modal -->
       <div class="bground modal">
         <div class="content">
           <div>
           <span class="close" onclick="closeModal()"></span>
         </div>
+        <!-- container of subcribe form and confirming message -->
           <div class="container-body">
             <div class="modal-body">
               <form
@@ -65,7 +68,7 @@
                 name="reserve"
               >
                 <div
-                  class="formData">
+                  class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom">
                   <label for="fname">Prénom</label><br>
                   <input
                     class="text-control"
@@ -73,8 +76,9 @@
                     id="fname"
                     name="fname"
                     minlength="2"
+                    onkeyup='saveValue(this);'
                   /><br>
-                  <p id="fname-invalid" class="invalid">Le champ Prénom doit avoir un minimum de 2 caractères</p>
+                  <p id="fname-invalid" class="invalid">Veuillez entrer 2 caractères ou plus pour le champ du prénom</p>
                 </div>
                 <div
                   class="formData">
@@ -85,7 +89,7 @@
                     id="lname"
                     name="lname"
                   /><br>
-                  <p id="lname-invalid" class="invalid">Le champ du nom de famille doit avoir un minimum de 2 caractères</p>
+                  <p id="lname-invalid" class="invalid">Veuillez entrer 2 caractères ou plus pour le champ du nom</p>
                 </div>
                 <div
                   class="formData">
@@ -107,6 +111,7 @@
                     id="birthdate"
                     name="birthdate"
                   /><br>
+                  <p id="birthdate-invalid" class="invalid">Vous devez entrer votre date de naissance</p>
                 </div>
                 <div
                   class="formData">
@@ -183,7 +188,7 @@
                     <span class="checkbox-icon"></span>
                     Portland</label
                   >
-                  <p id="location-invalid" class="invalid">Un tournoi doit être sélectionné</p>
+                  <p id="location-invalid" class="invalid">Vous devez choisir une option</p>
                 </div>
   
                 <div
@@ -200,7 +205,7 @@
                     J'ai lu et accepté les conditions d'utilisation.
                   </label>
                   <br>
-                  <p id="conditions-invalid" class="invalid">Vous devez accepter les conditions d'utilisation</p>
+                  <p id="conditions-invalid" class="invalid">Vous devez vérifier que vous acceptez les termes et conditions</p>
                   <input class="checkbox-input" type="checkbox" id="checkbox2" />
                   <label class="checkbox2-label" for="checkbox2">
                     <span class="checkbox-icon"></span>
@@ -220,7 +225,7 @@
                 <div class="modal-body">
                   <h1>Merci pour votre inscription</h1>
                 </div>
-                <button class="button btn-submit">Fermer</button>
+                <button class="button btn-submit" onclick="closeModal()">Fermer</button>
             </div>
           </div>
         </div>

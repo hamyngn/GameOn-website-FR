@@ -13,7 +13,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -83,6 +82,7 @@ main {
   border-radius: 2rem;
   text-align: justify;
 }
+/* button subcribe */
 .modal-btn {
   font-size: 145%;
   background: #fe142f;
@@ -102,7 +102,7 @@ main {
   padding: 10px;
   font-family: var(--font-slab);
 }
-/* Modal form */
+/* Form modal */
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -115,6 +115,7 @@ main {
 .button:hover {
   background: #3876ac;
 }
+/* modal background */
 .bground {
   display: none;
   position: fixed;
@@ -126,36 +127,9 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
-.modal-succeed {
-  display: none;
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  top: 20px;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: #232323;
-  color: white;
-  text-align: center;
-}
-.modal-succeed button {
-  border: none;
-}
+/* container of subcribe form and confirming message */
 .container-body {
   position: relative;
-}
-.invalid {
-  display: none;
-  font-family: 'Roboto';
-  font-weight: 400;
-  color: red;
-  font-size: 10px;
-}
-.red-border {
-  box-sizing: border-box;
-  border: 2px solid red;
 }
 .content {
   margin: 5% auto;
@@ -181,6 +155,7 @@ label {
   display: inline-block;
   margin-bottom: 11px;
 }
+/* style of input */
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
@@ -389,6 +364,47 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 16px;
+}
+/* invalid message */
+.invalid {
+  display: none;
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: red;
+  font-size: 10px;
+}
+.red-border {
+  box-sizing: border-box;
+  border: 2px solid red;
+}
+/* confirming message modal*/
+.modal-succeed {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: 20px;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: #232323;
+  color: white;
+  text-align: center;
+}
+.modal-succeed button {
+  border: none;
+  position:absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-succeed h1 {
+  margin: 55% 5vw;
+  font-size: 36px;
+  font-weight: 400;
 }
 .hero-section {
   min-height: 93vh;

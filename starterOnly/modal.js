@@ -33,16 +33,36 @@ function closeModal() {
 function inputValue(id) {
   return subcribeForm[id].value;
 }
+/* function saveValue(e){
+  const id = e.id;
+  const val = e.value;
+  localStorage.setItem(id, val);
+}
+function getSavedValue(val){
+  if (!localStorage.getItem(val)) {
+    return "";
+  }
+  return localStorage.getItem(val);
+}
+
+inputValue("fname") == getSavedValue("fname");
+inputValue("lname") == getSavedValue("lname");
+ */
 function checkInt(num) {
   return Number.isInteger(parseFloat(num));
 }
 
 function validate() {
     if(inputValue("fname").length < 2) {
+      // alert(formData[1].querySelector("#lname").value);
+      formData[0].setAttribute("data-error-visible", "true");
+      return false;
+    }
+   /*  if(inputValue("fname").length < 2) {
       document.getElementById("fname-invalid").style.display="block";
       document.getElementById("fname").classList.add("red-border");
       return false;
-    }
+    } */
     if (inputValue("lname").length < 2) {
       document.getElementById("lname-invalid").style.display="block";
       document.getElementById("lname").classList.add("red-border");
@@ -51,6 +71,11 @@ function validate() {
     if (inputValue("email") == "") {
       document.getElementById("email-invalid").style.display="block";
       document.getElementById("email").classList.add("red-border");
+      return false;
+    }
+    if (inputValue("birthdate") == "") {
+      document.getElementById("birthdate-invalid").style.display="block";
+      document.getElementById("birthdate").classList.add("red-border");
       return false;
     }
     if (checkInt(inputValue("quantity"))==false) {
