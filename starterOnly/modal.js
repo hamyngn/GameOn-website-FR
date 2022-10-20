@@ -33,10 +33,10 @@ function closeModal() {
 function inputValue(id) {
   return subcribeForm[id].value;
 }
-/* function saveValue(e){
+function saveValue(e){
   const id = e.id;
   const val = e.value;
-  localStorage.setItem(id, val);
+  localStorage.setItem(id, val); 
 }
 function getSavedValue(val){
   if (!localStorage.getItem(val)) {
@@ -44,61 +44,60 @@ function getSavedValue(val){
   }
   return localStorage.getItem(val);
 }
+const idList = ["fname","lname","email","birthdate","quantity", "location", "conditions"];
+function getValue() {
+  for(let i=0; i < idList.length; i++) {
+    subcribeForm[idList[i]].value = localStorage.getItem(idList[i]);
+    if(idList[i] === "location") {
+      for(let j = 1; j < subcribeForm["location"].length; j++) {
+        if (document.getElementById("location"+[j]).value === localStorage.getItem("location"+[j])) {
+          document.getElementById("location"+[j]).checked = true;
+        }
+      }
+    }
+  } 
+}
+window.onload = getValue;
 
-inputValue("fname") == getSavedValue("fname");
-inputValue("lname") == getSavedValue("lname");
- */
 function checkInt(num) {
   return Number.isInteger(parseFloat(num));
+}
+function setAtt(i) {
+  formData[i].setAttribute("data-error-visible", "true");
 }
 
 function validate() {
     if(inputValue("fname").length < 2) {
-      // alert(formData[1].querySelector("#lname").value);
-      formData[0].setAttribute("data-error-visible", "true");
+      setAtt(0);
       return false;
     }
-   /*  if(inputValue("fname").length < 2) {
-      document.getElementById("fname-invalid").style.display="block";
-      document.getElementById("fname").classList.add("red-border");
-      return false;
-    } */
     if (inputValue("lname").length < 2) {
-      document.getElementById("lname-invalid").style.display="block";
-      document.getElementById("lname").classList.add("red-border");
+      setAtt(1);
       return false;
     }
     if (inputValue("email") == "") {
-      document.getElementById("email-invalid").style.display="block";
-      document.getElementById("email").classList.add("red-border");
+      setAtt(2);
       return false;
     }
     if (inputValue("birthdate") == "") {
-      document.getElementById("birthdate-invalid").style.display="block";
-      document.getElementById("birthdate").classList.add("red-border");
+      setAtt(3);
       return false;
     }
     if (checkInt(inputValue("quantity"))==false) {
-      document.getElementById("quantity-invalid").style.display="block";
-      document.getElementById("quantity").classList.add("red-border");
+      setAtt(4)
       return false;
     }
     if (inputValue("location") == "") {
-      document.getElementById("location-invalid").style.display="block";
-      document.getElementById("location").classList.add("red-border");
+      setAtt(5);
       return false;
     }
     if (subcribeForm["conditions"].checked == false) {
-      document.getElementById("conditions-invalid").style.display="block";
-      document.getElementById("conditions").classList.add("red-border");
+      setAtt(6);
       return false;
     }
     modalSucceed.style.display = "block";
     return true;
   }
-
-
-
 
 
 
