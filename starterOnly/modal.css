@@ -169,6 +169,7 @@ input {
   font-size: 20px;
   height: 48px;
 }
+/* message error */
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -176,7 +177,7 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;
@@ -187,12 +188,13 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
+
+/* input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
 } */
+/* checkbow style */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -214,6 +216,7 @@ input[data-error]::after {
   top: -1px;
   transition: 0.3s;
 }
+/* checked checkbox */
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
@@ -240,11 +243,13 @@ input[data-error]::after {
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
   background: #279e7a;
 }
+/* notify and conditions checkbox */
 .checkbox2-label .checkbox-icon {
   border-radius: 4px;
   border: 0;
   background: #c4c4c4;
 }
+/* draw checked icon by border box */
 .checkbox2-label .checkbox-icon::after {
   width: 7px;
   height: 4px;
@@ -257,6 +262,7 @@ input[data-error]::after {
   left: 21%;
   top: 19%;
 }
+/* close modal style */
 .close {
   position: absolute;
   right: 15px;
@@ -267,6 +273,7 @@ input[data-error]::after {
   cursor: pointer;
   transform: scale(0.7);
 }
+/* create close icon */
 .close:before,
 .close:after {
   position: absolute;
@@ -282,6 +289,7 @@ input[data-error]::after {
 .close:after {
   transform: rotate(-45deg);
 }
+
 .btn-submit,
 .btn-signup {
   background: #fe142f;
@@ -329,7 +337,6 @@ input[data-error]::after {
   transform: rotate(135deg);
   top: 13px;
 }
-
 .select-items div,
 .select-selected {
   color: #000;
@@ -340,7 +347,6 @@ input[data-error]::after {
   border-radius: 8px;
   height: 48px;
 }
-
 /* Style items (options): */
 .select-items {
   position: absolute;
@@ -350,12 +356,10 @@ input[data-error]::after {
   right: 0;
   z-index: 99;
 }
-
 /* Hide the items when the select box is closed: */
 .select-hide {
   display: none;
 }
-
 .select-items div:hover,
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
@@ -364,18 +368,6 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 16px;
-}
-/* invalid message */
-.invalid {
-  display: none;
-  font-family: 'Roboto';
-  font-weight: 400;
-  color: red;
-  font-size: 10px;
-}
-.red-border {
-  box-sizing: border-box;
-  border: 2px solid red;
 }
 /* confirming message modal*/
 .modal-succeed {

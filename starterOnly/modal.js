@@ -30,27 +30,30 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-function inputValue(id) {
-  return subcribeForm[id].value;
+function inputValue(name) {
+  return subcribeForm[name].value;
 }
+
 function saveValue(e){
   const id = e.id;
   const val = e.value;
   localStorage.setItem(id, val); 
 }
+
 function getSavedValue(val){
   if (!localStorage.getItem(val)) {
     return "";
   }
   return localStorage.getItem(val);
 }
+
 const idList = ["fname","lname","email","birthdate","quantity", "location", "conditions"];
 function getValue() {
   for(let i=0; i < idList.length; i++) {
-    subcribeForm[idList[i]].value = localStorage.getItem(idList[i]);
+    subcribeForm[idList[i]].value = getSavedValue(idList[i]);
     if(idList[i] === "location") {
       for(let j = 1; j < subcribeForm["location"].length; j++) {
-        if (document.getElementById("location"+[j]).value === localStorage.getItem("location"+[j])) {
+        if (document.getElementById("location"+[j]).value === getSavedValue("location"+[j])) {
           document.getElementById("location"+[j]).checked = true;
         }
       }
@@ -62,8 +65,26 @@ window.onload = getValue;
 function checkInt(num) {
   return Number.isInteger(parseFloat(num));
 }
+
 function setAtt(i) {
   formData[i].setAttribute("data-error-visible", "true");
+}
+/* Regex
+- /.../ : contains a regex
+- ^\w : begins with latin alphabet and number (a-z, A-Z, 0-9 and underscore)
+- + : 1 or manytimes
+- ([\.-]?\w+)* : matches 0 or more occurrences of [\.-]?\w+. 
+- [\.-]?\w+ : matches 0 or 1 occurrences of "\.-", a . or - must follow by a word character. 
+- The @ matches itself. 
+- .\w{2,3} matches a . followed by two or three word characters
+- $ : the end of input
+*/
+
+const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+function validateEmail() {
+  return inputValue("email")
+  .toLowerCase()
+  .match(validRegex);
 }
 
 function validate() {
@@ -75,7 +96,7 @@ function validate() {
       setAtt(1);
       return false;
     }
-    if (inputValue("email") == "") {
+    if (!validateEmail()) {
       setAtt(2);
       return false;
     }
@@ -96,11 +117,6 @@ function validate() {
       return false;
     }
     modalSucceed.style.display = "block";
+    localStorage.clear();
     return true;
   }
-
-
-
-
-
-
