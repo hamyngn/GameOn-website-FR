@@ -86,34 +86,45 @@ function validateEmail() {
   .toLowerCase()
   .match(validRegex);
 }
+function focusInput(id) {
+  document.getElementById(id).scrollIntoView();
+  document.getElementById(id).focus();
+}
 
 function validate() {
     if(inputValue("fname").length < 2) {
       setAtt(0);
+      focusInput("fname");
       return false;
     }
     if (inputValue("lname").length < 2) {
       setAtt(1);
+      focusInput("lname");
       return false;
     }
     if (!validateEmail()) {
       setAtt(2);
+      focusInput("email");
       return false;
     }
     if (inputValue("birthdate") == "") {
       setAtt(3);
+      focusInput("birthdate");
       return false;
     }
     if (checkInt(inputValue("quantity"))==false) {
-      setAtt(4)
+      setAtt(4);
+      focusInput("quantity");
       return false;
     }
     if (inputValue("location") == "") {
       setAtt(5);
+      focusInput("location");
       return false;
     }
     if (subcribeForm["conditions"].checked == false) {
       setAtt(6);
+      focusInput("conditions");
       return false;
     }
     modalSucceed.style.display = "block";
