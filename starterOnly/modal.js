@@ -25,47 +25,20 @@ function launchModal() {
   modalSucceed.style.display = "none";
 }
 
-//close modal
+// close modal
 function closeModal() {
   modal.style.display = "none";
 }
-
+// get form input value
 function inputValue(name) {
   return subcribeForm[name].value;
 }
-
-function saveValue(e){
-  const id = e.id;
-  const val = e.value;
-  localStorage.setItem(id, val); 
-}
-
-function getSavedValue(val){
-  if (!localStorage.getItem(val)) {
-    return "";
-  }
-  return localStorage.getItem(val);
-}
-
-const idList = ["fname","lname","email","birthdate","quantity", "location", "conditions"];
-function getValue() {
-  for(let i=0; i < idList.length; i++) {
-    subcribeForm[idList[i]].value = getSavedValue(idList[i]);
-    if(idList[i] === "location") {
-      for(let j = 1; j < subcribeForm["location"].length; j++) {
-        if (document.getElementById("location"+[j]).value === getSavedValue("location"+[j])) {
-          document.getElementById("location"+[j]).checked = true;
-        }
-      }
-    }
-  } 
-}
-window.onload = getValue;
-
+// check if the number is int
 function checkInt(num) {
   return Number.isInteger(parseFloat(num));
 }
 
+// set data-error-visible attribute to class formData
 function setAtt(i) {
   formData[i].setAttribute("data-error-visible", "true");
 }
@@ -80,17 +53,29 @@ function setAtt(i) {
 - $ : the end of input
 */
 
-const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/; //regex init
+
+// check if email respects the rules
 function validateEmail() {
   return inputValue("email")
   .toLowerCase()
   .match(validRegex);
 }
+
+// set focus and scroll to input by id
 function focusInput(id) {
   document.getElementById(id).scrollIntoView();
   document.getElementById(id).focus();
 }
 
+// remove error messages of form validation
+function removeError() {
+  for(i=0; i<7; i++) {
+    formData[i].removeAttribute("data-error-visible");
+  }
+}
+
+// check form validation
 function validate() {
     if(inputValue("fname").length < 2) {
       setAtt(0);
@@ -128,6 +113,7 @@ function validate() {
       return false;
     }
     modalSucceed.style.display = "block";
-    localStorage.clear();
+    subcribeForm.reset();
+    removeError();
     return true;
   }
