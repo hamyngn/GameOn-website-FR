@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Reservation</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="modal.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     <!-- header -->
     <div class="topnav flex-row" id="myTopnav">
       <div class="header-logo flex-item">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png">
     </div>
     <nav class="main-navbar">
       <a href="#" class="active flex-item"><span>Accueil</span></a>
@@ -28,7 +28,6 @@
       </button>
     </div>
     </nav>
-    </div>
     </div>
     <!-- content -->
     <main>
@@ -47,7 +46,7 @@
           </button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" alt="img" >
         </div>
         <!-- button mobile version -->
         <button class="btn-signup modal-btn">
@@ -76,7 +75,7 @@
                     id="fname"
                     name="fname"
                     minlength="2"
-                  /><br>
+                  ><br>
                 </div>
                 <div
                   class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom">
@@ -86,7 +85,7 @@
                     type="text"
                     id="lname"
                     name="lname"
-                  /><br>
+                  ><br>
                 </div>
                 <div
                   class="formData" data-error="L'adresse électronique n'est pas valide">
@@ -96,7 +95,7 @@
                     type="email"
                     id="email"
                     name="email"
-                  /><br>
+                  ><br>
                 </div>
                 <div
                   class="formData" data-error="Vous devez entrer votre date de naissance">
@@ -106,7 +105,7 @@
                     type="date"
                     id="birthdate"
                     name="birthdate"
-                  /><br>
+                  ><br>
                 </div>
                 <div
                   class="formData" data-error="Une valeur numérique doit être saisie">
@@ -116,7 +115,7 @@
                     id="quantity" 
                     name="quantity" 
                     min="0" max="99" 
-                  />
+                  >
                 </div>
                 <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                 <div
@@ -128,7 +127,7 @@
                     name="location"
                     value="New York"
                     checked
-                  />
+                  >
                   <label class="checkbox-label" for="location1">
                     <span class="checkbox-icon"></span>
                     New York</label
@@ -139,7 +138,7 @@
                     id="location2"
                     name="location"
                     value="San Francisco"
-                  />
+                  >
                   <label class="checkbox-label" for="location2">
                     <span class="checkbox-icon"></span>
                     San Francisco</label
@@ -150,7 +149,7 @@
                     id="location3"
                     name="location"
                     value="Seattle"
-                  />
+                  >
                   <label class="checkbox-label" for="location3">
                     <span class="checkbox-icon"></span>
                     Seattle</label
@@ -161,7 +160,7 @@
                     id="location4"
                     name="location"
                     value="Chicago"
-                  />
+                  >
                   <label class="checkbox-label" for="location4">
                     <span class="checkbox-icon"></span>
                     Chicago</label
@@ -172,7 +171,7 @@
                     id="location5"
                     name="location"
                     value="Boston"
-                  />
+                  >
                   <label class="checkbox-label" for="location5">
                     <span class="checkbox-icon"></span>
                     Boston</label
@@ -183,7 +182,7 @@
                     id="location6"
                     name="location"
                     value="Portland"
-                  />
+                  >
                   <label class="checkbox-label" for="location6">
                     <span class="checkbox-icon"></span>
                     Portland</label
@@ -198,13 +197,14 @@
                     id="checkbox1"
                     name="conditions"
                     checked
-                  />
-                  <label class="checkbox2-label" for="checkbox1" required>
+                    required
+                  >
+                  <label class="checkbox2-label" for="checkbox1">
                     <span class="checkbox-icon"></span>
                     J'ai lu et accepté les conditions d'utilisation.
                   </label>
                   <br>
-                  <input class="checkbox-input" type="checkbox" id="checkbox2" />
+                  <input class="checkbox-input" type="checkbox" id="checkbox2">
                   <label class="checkbox2-label" for="checkbox2">
                     <span class="checkbox-icon"></span>
                     Je Je souhaite être prévenu des prochains évènements.
@@ -216,7 +216,7 @@
                   type="button"
                   value="C'est parti"
                   onclick="validate()"
-                />
+                >
               </form>
             </div>
             <div class="modal-succeed">
